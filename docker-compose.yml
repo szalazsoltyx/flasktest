@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  filebrowser:
+    ports:
+      - 8081:80
+    image: filebrowser/filebrowser:latest
+    volumes:
+      - ./config/filebrowser.db:/database/filebrowser.db
+      - ./config/settings.json:/config/settings.json
+      - ./mount:/srv
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+
+
+
